@@ -1,0 +1,94 @@
+/* --- GLOBAL THEME --- */
+.root {
+    -fx-background-color: #F3F5F7;
+    -fx-font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* --- THE LOGIN CARD (Renamed to avoid Checkbox conflict) --- */
+.login-card {
+    -fx-background-color: white;
+    -fx-background-radius: 25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);
+    -fx-padding: 50px;
+    -fx-spacing: 20px;
+    -fx-alignment: center-left;
+    -fx-max-width: 380px;
+}
+
+/* --- LABELS --- */
+.label {
+    -fx-text-fill: #401D33; /* Your Plum Purple */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* --- TEXT & PASSWORD FIELDS (Underscore Style) --- */
+.text-field, .password-field {
+    -fx-background-color: transparent;
+    -fx-border-color: #E0E0E0; /* Light Gray */
+    -fx-border-width: 0 0 1px 0;
+    -fx-text-fill: #401D33;
+    -fx-font-size: 16px;
+    -fx-padding: 8 0 8 0;
+}
+
+/* Focus State: This is where the color "pops" */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #E16A54; /* Your Coral Accent */
+    -fx-border-width: 0 0 2px 0;
+}
+
+/* --- THE PILL BUTTONS (Login & Register) --- */
+.button {
+    -fx-background-color: #401D33;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-background-radius: 50; /* Pill shape */
+    -fx-padding: 12 0 12 0;
+    -fx-pref-width: 280px;
+    -fx-cursor: hand;
+}
+
+/* Button Hover Style */
+.button:hover {
+    -fx-background-color: #5A2B48; /* Lighter Plum */
+}
+
+/* --- SPECIAL: FORGOT PASSWORD --- */
+.forgot-btn {
+    -fx-background-color: #F0F0F0;
+    -fx-text-fill: #E16A54; /* Coral */
+    -fx-background-radius: 8px;
+    -fx-font-size: 11px;
+    -fx-padding: 5 12;
+    -fx-pref-width: -1; /* Fit to text */
+}
+
+.forgot-btn:hover {
+    -fx-background-color: #E8E8E8;
+}
+
+/* --- THE CHECKBOX FIX --- */
+.check-box {
+    -fx-text-fill: #808080;
+    -fx-font-size: 12px;
+}
+
+/* Resetting the internal box so it doesn't look like a giant card */
+.check-box > .box {
+    -fx-background-color: #F0F0F0;
+    -fx-background-radius: 3px;
+    -fx-padding: 2px; 
+    -fx-border-color: #D6D6D6;
+    -fx-border-width: 1px;
+}
+
+.check-box:selected > .box {
+    -fx-background-color: #401D33;
+}
+
+/* The actual checkmark color */
+.check-box:selected > .box > .mark {
+    -fx-background-color: white;
+}
