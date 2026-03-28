@@ -7,7 +7,8 @@
 /* --- THE LOGIN CARD (Renamed to avoid Checkbox conflict) --- */
 .login-card {
     -fx-background-color: white;
-    -fx-background-radius: 25px;
+    /* Order: Top-Left, Top-Right, Bottom-Right, Bottom-Left */
+    -fx-background-radius: 0 25px 25px 0; 
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);
     -fx-padding: 50px;
     -fx-spacing: 20px;
