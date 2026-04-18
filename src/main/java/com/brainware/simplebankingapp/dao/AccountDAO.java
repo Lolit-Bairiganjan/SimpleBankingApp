@@ -1,31 +1,37 @@
+package com.brainware.simplebankingapp.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import com.brainware.simplebankingapp.dao.DatabaseConnection;
 
 import com.brainware.simplebankingapp.model.Account;
 
-public Account getAccountById(int accountId) {
+public class AccountDAO {
 
-    String query = "SELECT * FROM accounts WHERE account_id = ?";
+    public Account getAccountById(int accountId) {
 
-    try (Connection conn = DatabaseConnection.getConnection();
-         PreparedStatement ps = conn.prepareStatement(query)) {
+        String query = "SELECT * FROM accounts WHERE account_id = ?";
 
-        ps.setInt(1, accountId);
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
 
-        ResultSet rs = ps.executeQuery();
+            ps.setInt(1, accountId);
 
-        if (rs.next()) {
-            return new Account(
-                rs.getInt("account_id"),
-                rs.getInt("user_id"),
-                rs.getDouble("balance")
-            );
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Account(
+                    rs.getInt("account_id"),
+                    rs.getInt("user_id"),
+                    rs.getDouble("balance")
+                );
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-    } catch (Exception e) {
-        e.printStackTrace();
+        return null;
     }
-
-    return null;
 }
