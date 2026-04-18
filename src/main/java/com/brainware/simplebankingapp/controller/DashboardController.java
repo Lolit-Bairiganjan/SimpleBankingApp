@@ -1,26 +1,40 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.brainware.simplebankingapp.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
-/**
- * FXML Controller class
- *
- * @author wolfr
- */
-public class DashboardController implements Initializable {
+public class DashboardController {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    @FXML private Label checkingBalanceLabel;
+    @FXML private Label savingsBalanceLabel;
+    @FXML private TableView<?> transactionTable; // Use your Transaction model here later
+    @FXML private StackPane contentArea;
+    @FXML private VBox dashboardView;
+
+    @FXML
+    public void initialize() {
+        // This runs when the FXML loads. 
+        // For now, it just confirms the UI is working.
+        System.out.println("Dashboard UI Initialized!");
+    }
+
+    @FXML
+    private void showDashboardView() {
+        dashboardView.setVisible(true);
+    }
+
+    @FXML
+    private void showTransferView() {
+        // Logic to swap views will go here tomorrow [cite: 130]
+        System.out.println("Transfer view requested");
+    }
+
+    @FXML
+    private void handleLogout() {
+        System.out.println("Logging out...");
+        System.exit(0); 
+    }
 }

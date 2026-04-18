@@ -12,7 +12,7 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/brainware/simplebankingapp/view/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/brainware/simplebankingapp/view/Dashboard.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);

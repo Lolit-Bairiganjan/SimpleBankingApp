@@ -1,2 +1,79 @@
+.root {
+    -fx-background-color: #f4f6f8;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+}
 
+/* Sidebar Styles */
+.sidebar {
+    -fx-background-color: white;
+    -fx-padding: 30 20;
+    -fx-pref-width: 280;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 5, 0);
+}
 
+.logo-text {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* Navigation Buttons - Card Style */
+.nav-btn-white {
+    -fx-background-color: white;
+    -fx-text-fill: #444444;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 15 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 3);
+}
+.nav-btn-white:hover {
+    -fx-background-color: #fdfdfd;
+    -fx-translate-y: -1;
+}
+
+/* System Buttons - Dark Green Style */
+.nav-btn-dark {
+    -fx-background-color: #122612;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 15 20;
+    -fx-cursor: hand;
+}
+.nav-btn-dark:hover {
+    -fx-background-color: #1a361a;
+}
+
+/* Main Cards */
+.balance-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.04), 20, 0, 0, 10);
+}
+
+.balance-amount {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #122612;
+}
+
+.section-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* Bug Report Section */
+.report-card {
+    -fx-background-color: #eef9ee;
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+}
+.report-btn {
+    -fx-background-color: #122612;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 8 15;
+}
