@@ -11,12 +11,9 @@ import java.io.IOException;
 
 public class App extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/brainware/simplebankingapp/view/Dashboard.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) {
+        StageManager.setStage(stage); // Hand over the stage control
+        StageManager.showLogin();     // Start with the login screen
     }
 
     public static void main(String[] args) {
