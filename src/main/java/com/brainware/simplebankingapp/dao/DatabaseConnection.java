@@ -8,7 +8,7 @@ public class DatabaseConnection {
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
-            String url = "jdbc:mysql://localhost:3306/simplebankingapp";
+            String url = "jdbc:mysql://localhost:3306/banking";
             String user = "root";
             String password = "lolit007";
             connection = DriverManager.getConnection(url, user, password);
