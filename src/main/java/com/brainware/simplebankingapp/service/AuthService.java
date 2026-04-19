@@ -6,16 +6,13 @@ import com.brainware.simplebankingapp.model.User;
 public class AuthService {
     private final UserDAO userDAO = new UserDAO();
 
-    public boolean login(String username, String password) {
-        // Business logic check
+    public User login(String username, String password) {
+        // Validation check
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
-            return false;
+            return null;
         }
         
-        // Match the method name 'login' from your UserDAO
-        User user = userDAO.login(username, password);
-        
-        // Return true if a user was found in the database
-        return user != null; 
+        // Return the full User object from the DAO instead of just 'true'
+        return userDAO.login(username, password);
     }
 }
