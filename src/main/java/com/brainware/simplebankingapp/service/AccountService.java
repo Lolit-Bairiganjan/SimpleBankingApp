@@ -1,20 +1,49 @@
 package com.brainware.simplebankingapp.service;
 
 import com.brainware.simplebankingapp.dao.AccountDAO;
-import com.brainware.simplebankingapp.model.Account;
 
 public class AccountService {
 
-    private AccountDAO accountDAO = new AccountDAO();
+    private final AccountDAO accountDAO = new AccountDAO();
 
-    public double getBalance(int accountId) {
+    /**
+     * Fetches the current balance for the logged-in customer.
+     * Bridges the UI to the 'getBalanceByCustomerId' method in the DAO.
+     */
+    public double getBalance(int customerId) {
+        if (customerId <= 0) return 0.0;
 
-        if (accountId <= 0) return 0;
+        // Using Double (capital D) to handle potential nulls from the DAO safely
+        Double balance = accountDAO.getBalanceByCustomerId(customerId);
+        
+        return (balance != null) ? balance : 0.0;
+    }
 
-        Account acc = accountDAO.getAccountById(accountId);
+    /**
+     * Processes a deposit request from the UI.
+     */
+    public boolean deposit(int customerId, double amount) {
+        if (amount <= 0) return false;
+        return accountDAO.deposit(customerId, amount);
+    }
 
-        if (acc == null) return 0;
+    /**
+     * Processes a withdrawal request from the UI.
+     */
+    public boolean withdraw(int customerId, double amount) {
+        if (amount <= 0) return false;
+        return accountDAO.withdraw(customerId, amount);
+    }
 
-        return acc.getBalance();
+    /**
+     * THE CORE INTEGRATION: Bridges the Transfer UI to the Atomic Transfer logic.
+     * This is the most critical method for your Minimum Viable Product (MVP).
+     */
+    public boolean transfer(int fromCustomerId, int toAccountId, double amount) {
+        // Basic validation before hitting the database
+        if (amount <= 0 || fromCustomerId <= 0 || toAccountId <= 0) {
+            return false;
+        }
+        return accountDAO.transfer(fromCustomerId, toAccountId, amount);
     }
 }

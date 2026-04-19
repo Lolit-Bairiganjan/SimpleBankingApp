@@ -1,6 +1,5 @@
 package com.brainware.simplebankingapp.dao;
 
-import com.brainware.simplebankingapp.config.DBConnection;
 import com.brainware.simplebankingapp.model.User;
 
 import java.sql.Connection;
@@ -12,7 +11,7 @@ public class UserDAO {
     public User login(String username, String password) {
         String query = "SELECT * FROM users WHERE username = ? AND password = ?";
 
-        try (Connection conn = DBConnection.getConnection();
+        try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
 
             ps.setString(1, username);
