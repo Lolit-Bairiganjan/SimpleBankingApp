@@ -1,23 +1,54 @@
-
 package com.brainware.simplebankingapp.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import com.brainware.simplebankingapp.dao.UserDAO;
+import com.brainware.simplebankingapp.model.User;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author wolfr
- */
-public class LoginController implements Initializable {
+public class LoginController {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    @FXML
+    private TextField usernameField;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private Label messageLabel;
+
+    private final UserDAO userDAO = new UserDAO();
+
+    @FXML
+    private void handleLogin() {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        User user = userDAO.login(username, password);
+
+        if (user != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/brainware/simplebankingapp/view/Dashboard.fxml"));
+                Parent root = loader.load();
+
+                DashboardController dashboardController = loader.getController();
+                dashboardController.setUser(user);
+
+                Stage stage = (Stage) usernameField.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                messageLabel.setText("Could not load dashboard");
+            }
+        } else {
+            messageLabel.setText("Invalid username or password");
+        }
+    }
 }

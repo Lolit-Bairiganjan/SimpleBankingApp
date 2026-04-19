@@ -1,11 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brainware.simplebankingapp.controller.DashboardController">
-    
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.brainware.simplebankingapp.controller.DashboardController">
+
+    <Label fx:id="welcomeLabel"
+           layoutX="170.0"
+           layoutY="40.0"
+           text="Welcome"
+           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <Label fx:id="adminSectionLabel"
+           layoutX="80.0"
+           layoutY="100.0"
+           text="Admin Options"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+    <Button fx:id="viewUsersButton"
+            layoutX="80.0"
+            layoutY="140.0"
+            prefWidth="150.0"
+            text="View Users" />
+
+    <Button fx:id="manageAccountsButton"
+            layoutX="80.0"
+            layoutY="190.0"
+            prefWidth="150.0"
+            text="Manage Accounts" />
+
+    <Button fx:id="viewTransactionsButton"
+            layoutX="80.0"
+            layoutY="240.0"
+            prefWidth="150.0"
+            text="View Transactions" />
+
+    <Label fx:id="customerSectionLabel"
+           layoutX="330.0"
+           layoutY="100.0"
+           text="Customer Options"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+    <Button fx:id="viewBalanceButton"
+            layoutX="330.0"
+            layoutY="140.0"
+            prefWidth="150.0"
+            text="View Balance"
+            onAction="#handleViewBalance" />
+
+    <Button fx:id="depositButton"
+            layoutX="330.0"
+            layoutY="190.0"
+            prefWidth="150.0"
+            text="Deposit"
+            onAction="#handleDeposit" />
+
+    <Button fx:id="withdrawButton"
+            layoutX="330.0"
+            layoutY="240.0"
+            prefWidth="150.0"
+            text="Withdraw"
+            onAction="#handleWithdraw" />
+
+    <TextField fx:id="amountField"
+               layoutX="330.0"
+               layoutY="280.0"
+               prefWidth="150.0"
+               promptText="Enter amount" />
+
+    <Label fx:id="balanceLabel"
+           layoutX="330.0"
+           layoutY="320.0"
+           prefWidth="260.0"
+           text="" />
+
 </AnchorPane>
