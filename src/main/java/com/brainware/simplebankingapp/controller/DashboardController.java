@@ -28,7 +28,7 @@ public class DashboardController {
 
     @FXML
     private void showTransferView() {
-        // Logic to swap views will go here tomorrow [cite: 130]
+        // Logic to swap views will go here tomorrow
         System.out.println("Transfer view requested");
     }
 

@@ -1,22 +1,16 @@
 package com.brainware.simplebankingapp.service;
 
 import com.brainware.simplebankingapp.dao.UserDAO;
-import com.brainware.simplebankingapp.model.User;
 
 public class AuthService {
-
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
 
     public boolean login(String username, String password) {
-
-        if (username == null || password == null)
+        // Business logic: check if fields are empty before even hitting the DB
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
             return false;
-
-        User user = userDAO.getUserByUsername(username);
-
-        if (user == null)
-            return false;
-
-        return user.getPassword().equals(password);
+        }
+        // Call the DAO to check the database
+        return userDAO.validateUser(username, password);
     }
 }
